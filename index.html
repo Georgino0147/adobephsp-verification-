@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AdobePhsp - Verify Your ADOBE</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 420px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        .company {
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: 0;
+            border-radius: 6px;
+            background: #1473e6;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:active {
+            opacity: 0.8;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .notice {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Verify Your ADOBE</h1>
+
+    <div class="company">
+        AdobePhsp
+    </div>
+
+    <p>Worker Verification</p>
+
+    <input
+        type="text"
+        id="workerID"
+        placeholder="Enter your Worker ID"
+        autocomplete="off"
+    >
+
+    <input
+        type="text"
+        id="verificationCode"
+        placeholder="Enter your verification code"
+        autocomplete="off"
+    >
+
+    <button onclick="verifyWorker()">
+        Verify
+    </button>
+
+    <div id="message"></div>
+
+    <div class="notice">
+        This verification page does not request or store your Adobe password.
+    </div>
+
+</div>
+
+<script>
+function verifyWorker() {
+
+    const workerID =
+        document.getElementById("workerID").value.trim();
+
+    const code =
+        document.getElementById("verificationCode").value.trim();
+
+    const message =
+        document.getElementById("message");
+
+    if (!workerID || !code) {
+        message.textContent =
+            "Please enter your Worker ID and verification code.";
+        return;
+    }
+
+    // Demo verification only.
+    // For real verification, connect this to your
+    // company's authorized backend system.
+
+    message.textContent =
+        "Verification submitted successfully.";
+
+    document.getElementById("workerID").value = "";
+    document.getElementById("verificationCode").value = "";
+}
+</script>
+
+</body>
+</html>
